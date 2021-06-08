@@ -24,6 +24,7 @@ class StatsDetailedViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = skillTitles[selectedStat.id]
+    print("stat level: \(selectedStat.level)")
     setupStats()
     print("total skills: \(arrayOfStandardSkillLevels.count)")
   }
@@ -31,7 +32,9 @@ class StatsDetailedViewController: UIViewController {
   func setupStats() {
     // formatting xp to remove tenths place decimal
     var unformattedXP = String(selectedStat.xp)
+    if unformattedXP != "0" {
     unformattedXP.removeLast()
+    }
     guard let formattedXP = Int(unformattedXP) else { return }
     
     // calculating remaining xp to next level
@@ -53,13 +56,20 @@ class StatsDetailedViewController: UIViewController {
     }
     
     // calculating progress as float
-    let progress: Float = Float(remainingXP) / Float(levelDifference)
+    var progress: Float = 0.0
+    
+    
     var progressPercentage: Int = 0
     
-    if selectedStat.level < 99 {
-    progressPercentage = Int(progress * 100)
-    } else {
+    if selectedStat.level < 99 && selectedStat.xp > 0 {
+      progress = Float(remainingXP) / Float(levelDifference)
+      progressPercentage = Int(progress * 100)
+    } else if selectedStat.level >= 99 {
+      progress = 1
       progressPercentage = 100
+    } else {
+      progress = 0
+      progressPercentage = 0
     }
     
     if progressPercentage <= 25 {

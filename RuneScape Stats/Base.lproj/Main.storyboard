@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XHt-pH-ELS">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="runescape_uf.ttf">
+            <string>RuneScape-UF</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--RuneScape Stats-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="PlayerSearchViewController" customModule="RuneScape_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sY-tH-OPG">
+                                <rect key="frame" x="2" y="190" width="410" height="23"/>
+                                <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vYl-tw-nqq">
+                                <rect key="frame" x="50" y="233" width="314" height="34"/>
+                                <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3E-ve-1VD">
+                                <rect key="frame" x="173" y="287" width="68" height="39"/>
+                                <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="27"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="submitButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UAW-kS-Eyz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2sY-tH-OPG" secondAttribute="trailing" constant="2" id="35W-Wo-ebT"/>
+                            <constraint firstItem="vYl-tw-nqq" firstAttribute="top" secondItem="2sY-tH-OPG" secondAttribute="bottom" constant="20" id="8xw-KG-ms4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vYl-tw-nqq" secondAttribute="trailing" constant="50" id="9Q9-dU-1GX"/>
+                            <constraint firstItem="2sY-tH-OPG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="E54-zd-YkH"/>
+                            <constraint firstItem="X3E-ve-1VD" firstAttribute="top" secondItem="vYl-tw-nqq" secondAttribute="bottom" constant="20" id="EQt-AV-QO5"/>
+                            <constraint firstItem="2sY-tH-OPG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="2" id="kbx-W6-mfx"/>
+                            <constraint firstItem="vYl-tw-nqq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="qSv-SX-f6e"/>
+                            <constraint firstItem="X3E-ve-1VD" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tTy-dv-ckv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="RuneScape Stats" id="aMm-Hn-TQ1"/>
+                    <connections>
+                        <outlet property="submitButton" destination="X3E-ve-1VD" id="xDF-4K-UyT"/>
+                        <outlet property="titleLabel" destination="2sY-tH-OPG" id="WRa-4s-eag"/>
+                        <outlet property="usernameTextField" destination="vYl-tw-nqq" id="TQx-Ef-0Qo"/>
+                        <segue destination="sXL-4l-WfA" kind="show" identifier="StatsTableViewSegue" id="cgg-hS-PUj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="944.92753623188412" y="93.75"/>
+        </scene>
+        <!--Stats Detailed View Controller-->
+        <scene sceneID="wI3-KT-dNQ">
+            <objects>
+                <viewController id="LAf-Zx-R6H" customClass="StatsDetailedViewController" customModule="RuneScape_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I8Q-ak-fRb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bf8-sn-qR2">
+                                <rect key="frame" x="10" y="170" width="394" height="29"/>
+                                <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kRZ-jr-I24">
+                                <rect key="frame" x="20" y="209" width="374" height="4"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Lm-Dh-gfm">
+                                <rect key="frame" x="20" y="223" width="48.5" height="25"/>
+                                <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojc-02-Zc5">
+                                <rect key="frame" x="345.5" y="223" width="48.5" height="25"/>
+                                <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1g-ab-MML">
+                                <rect key="frame" x="190.5" y="223" width="33" height="17"/>
+                                <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cnp-eL-zQI">
+                                <rect key="frame" x="177.5" y="270" width="59" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="Q6b-jO-0GE"/>
+                                    <constraint firstAttribute="width" constant="59" id="TNC-ua-eog"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="A5w-fw-jbR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="A5w-fw-jbR" firstAttribute="trailing" secondItem="ojc-02-Zc5" secondAttribute="trailing" constant="20" id="AsG-eu-C2N"/>
+                            <constraint firstItem="1Lm-Dh-gfm" firstAttribute="leading" secondItem="A5w-fw-jbR" secondAttribute="leading" constant="20" id="BdW-NV-CLS"/>
+                            <constraint firstItem="A5w-fw-jbR" firstAttribute="trailing" secondItem="bf8-sn-qR2" secondAttribute="trailing" constant="10" id="Eey-CV-M3N"/>
+                            <constraint firstItem="1Lm-Dh-gfm" firstAttribute="top" secondItem="kRZ-jr-I24" secondAttribute="bottom" constant="10" id="GPn-To-LBE"/>
+                            <constraint firstItem="bf8-sn-qR2" firstAttribute="leading" secondItem="A5w-fw-jbR" secondAttribute="leading" constant="10" id="NXI-Se-dsa"/>
+                            <constraint firstItem="bf8-sn-qR2" firstAttribute="top" secondItem="A5w-fw-jbR" secondAttribute="top" constant="20" id="Pii-8W-7Gr"/>
+                            <constraint firstItem="A5w-fw-jbR" firstAttribute="trailing" secondItem="kRZ-jr-I24" secondAttribute="trailing" constant="20" id="UpS-Ux-azF"/>
+                            <constraint firstItem="ojc-02-Zc5" firstAttribute="top" secondItem="kRZ-jr-I24" secondAttribute="bottom" constant="10" id="eEW-yn-YN7"/>
+                            <constraint firstItem="Cnp-eL-zQI" firstAttribute="top" secondItem="p1g-ab-MML" secondAttribute="bottom" constant="30" id="f9c-Ue-Gfp"/>
+                            <constraint firstItem="kRZ-jr-I24" firstAttribute="top" secondItem="bf8-sn-qR2" secondAttribute="bottom" constant="10" id="hgU-up-wSk"/>
+                            <constraint firstItem="Cnp-eL-zQI" firstAttribute="centerX" secondItem="A5w-fw-jbR" secondAttribute="centerX" id="jox-tr-zc0"/>
+                            <constraint firstItem="kRZ-jr-I24" firstAttribute="leading" secondItem="A5w-fw-jbR" secondAttribute="leading" constant="20" id="q3i-CX-sqI"/>
+                            <constraint firstItem="p1g-ab-MML" firstAttribute="top" secondItem="kRZ-jr-I24" secondAttribute="bottom" constant="10" id="qkK-Eg-VEZ"/>
+                            <constraint firstItem="p1g-ab-MML" firstAttribute="centerX" secondItem="A5w-fw-jbR" secondAttribute="centerX" id="xN1-8n-jL8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="71Q-29-oly"/>
+                    <connections>
+                        <outlet property="currentLevelLabel" destination="1Lm-Dh-gfm" id="cOI-VV-AbW"/>
+                        <outlet property="levelProgressLabel" destination="p1g-ab-MML" id="kRr-iV-bPk"/>
+                        <outlet property="levelProgressView" destination="kRZ-jr-I24" id="KSy-5Z-y8e"/>
+                        <outlet property="nextLevelLabel" destination="ojc-02-Zc5" id="sta-6U-L6O"/>
+                        <outlet property="statIconImage" destination="Cnp-eL-zQI" id="32N-Il-6De"/>
+                        <outlet property="statsLabel" destination="bf8-sn-qR2" id="iSS-kP-bl2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0hm-gX-KAd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2567" y="392"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="V9m-tY-q9i">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XHt-pH-ELS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="QTP-LK-4Yq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="106"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="17"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="61"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="wGj-sb-ttG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4M4-gg-JgH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
+        </scene>
+        <!--Stats Table View Controller-->
+        <scene sceneID="eia-bt-f5V">
+            <objects>
+                <tableViewController id="sXL-4l-WfA" customClass="StatsTableViewController" customModule="RuneScape_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xqi-mr-bX7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StatsCell" textLabel="fJu-nS-abc" detailTextLabel="gQz-hp-LqX" style="IBUITableViewCellStyleValue1" id="ZCN-rT-POx">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZCN-rT-POx" id="Cpu-Pe-qPE">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fJu-nS-abc">
+                                            <rect key="frame" x="20" y="12" width="32.5" height="20"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gQz-hp-LqX">
+                                            <rect key="frame" x="358.5" y="14" width="35.5" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="LAf-Zx-R6H" kind="show" identifier="DetailSkillSegue" id="em6-K2-ki0"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sXL-4l-WfA" id="mzi-Nt-4nd"/>
+                            <outlet property="delegate" destination="sXL-4l-WfA" id="TZp-9A-pWZ"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="PU8-SJ-xqz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="H4D-nz-tst">
+                            <connections>
+                                <segue destination="XAu-Cb-Qld" kind="show" id="LYM-rW-Cqw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cAh-KD-AiR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1787" y="94"/>
+        </scene>
+        <!--Adventure Log-->
+        <scene sceneID="Hdf-BL-xaI">
+            <objects>
+                <viewController id="NiN-sY-Msd" customClass="AdventureLogViewController" customModule="RuneScape_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3oH-iS-22Q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="adventure log" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4X-3f-MED">
+                                <rect key="frame" x="10" y="54" width="394" height="798"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4kx-OY-hEB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="g4X-3f-MED" firstAttribute="top" secondItem="4kx-OY-hEB" secondAttribute="top" constant="10" id="I5d-aT-0l1"/>
+                            <constraint firstItem="4kx-OY-hEB" firstAttribute="trailing" secondItem="g4X-3f-MED" secondAttribute="trailing" constant="10" id="Jq8-pK-aci"/>
+                            <constraint firstItem="4kx-OY-hEB" firstAttribute="bottom" secondItem="g4X-3f-MED" secondAttribute="bottom" constant="10" id="bw3-ah-Ej0"/>
+                            <constraint firstItem="g4X-3f-MED" firstAttribute="leading" secondItem="4kx-OY-hEB" secondAttribute="leading" constant="10" id="veh-wz-3wR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Adventure Log" id="yMU-Kr-Ejl"/>
+                    <connections>
+                        <outlet property="adventureLabel" destination="g4X-3f-MED" id="dwR-zf-ZFg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iJL-eM-hmY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2567" y="-276"/>
+        </scene>
+        <!--Adventure Log Table View Controller-->
+        <scene sceneID="7EG-Xq-ug4">
+            <objects>
+                <tableViewController id="XAu-Cb-Qld" customClass="AdventureLogTableViewController" customModule="RuneScape_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QxX-30-5cf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdventureLog" textLabel="LsN-Lj-PuI" style="IBUITableViewCellStyleDefault" id="XfW-Pp-oKE">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XfW-Pp-oKE" id="R5j-YH-9z4">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="LsN-Lj-PuI">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XAu-Cb-Qld" id="TYo-kg-52a"/>
+                            <outlet property="delegate" destination="XAu-Cb-Qld" id="RRr-7n-tEG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="i0h-ci-cYE"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="djr-f3-doX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3334" y="-267"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

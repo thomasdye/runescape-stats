@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EDA54DFA266B5295006EA683 /* StatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA54DF9266B5295006EA683 /* StatsTableViewController.swift */; };
+		EDA54EF9266B6637006EA683 /* runescape_uf.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDA54EF8266B6637006EA683 /* runescape_uf.ttf */; };
+		EDAE4D28266CA5360083636E /* StatsDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE4D27266CA5360083636E /* StatsDetailedViewController.swift */; };
+		EDAE4D2C266CA8850083636E /* SkillTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE4D2B266CA8850083636E /* SkillTitles.swift */; };
+		EDAE4D2F266CA9A30083636E /* ExperienceTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE4D2E266CA9A30083636E /* ExperienceTables.swift */; };
+		EDAE4D32266D26A20083636E /* AdventureLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE4D31266D26A20083636E /* AdventureLogViewController.swift */; };
+		EDAE4D35266F23A70083636E /* AdventureLogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE4D34266F23A70083636E /* AdventureLogTableViewController.swift */; };
+		EDF7D544265E19EF00D4FAF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7D543265E19EF00D4FAF7 /* AppDelegate.swift */; };
+		EDF7D546265E19EF00D4FAF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7D545265E19EF00D4FAF7 /* SceneDelegate.swift */; };
+		EDF7D548265E19EF00D4FAF7 /* PlayerSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7D547265E19EF00D4FAF7 /* PlayerSearchViewController.swift */; };
+		EDF7D54B265E19EF00D4FAF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF7D549265E19EF00D4FAF7 /* Main.storyboard */; };
+		EDF7D54D265E19EF00D4FAF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF7D54C265E19EF00D4FAF7 /* Assets.xcassets */; };
+		EDF7D550265E19EF00D4FAF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDF7D54E265E19EF00D4FAF7 /* LaunchScreen.storyboard */; };
+		EDF7D55C265E24FF00D4FAF7 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7D55B265E24FF00D4FAF7 /* Stats.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EDA54DF9266B5295006EA683 /* StatsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTableViewController.swift; sourceTree = "<group>"; };
+		EDA54EF8266B6637006EA683 /* runescape_uf.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = runescape_uf.ttf; sourceTree = "<group>"; };
+		EDAE4D27266CA5360083636E /* StatsDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDetailedViewController.swift; sourceTree = "<group>"; };
+		EDAE4D2B266CA8850083636E /* SkillTitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTitles.swift; sourceTree = "<group>"; };
+		EDAE4D2E266CA9A30083636E /* ExperienceTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceTables.swift; sourceTree = "<group>"; };
+		EDAE4D31266D26A20083636E /* AdventureLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureLogViewController.swift; sourceTree = "<group>"; };
+		EDAE4D34266F23A70083636E /* AdventureLogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureLogTableViewController.swift; sourceTree = "<group>"; };
+		EDF7D540265E19EF00D4FAF7 /* RuneScape Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RuneScape Stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF7D543265E19EF00D4FAF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EDF7D545265E19EF00D4FAF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EDF7D547265E19EF00D4FAF7 /* PlayerSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSearchViewController.swift; sourceTree = "<group>"; };
+		EDF7D54A265E19EF00D4FAF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EDF7D54C265E19EF00D4FAF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EDF7D54F265E19EF00D4FAF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EDF7D551265E19EF00D4FAF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDF7D55B265E24FF00D4FAF7 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDF7D53D265E19EF00D4FAF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EDA54DFC266B5999006EA683 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EDF7D547265E19EF00D4FAF7 /* PlayerSearchViewController.swift */,
+				EDA54DF9266B5295006EA683 /* StatsTableViewController.swift */,
+				EDAE4D27266CA5360083636E /* StatsDetailedViewController.swift */,
+				EDAE4D31266D26A20083636E /* AdventureLogViewController.swift */,
+				EDAE4D34266F23A70083636E /* AdventureLogTableViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		EDA54EF7266B6630006EA683 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				EDA54EF8266B6637006EA683 /* runescape_uf.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		EDF7D537265E19EF00D4FAF7 = {
+			isa = PBXGroup;
+			children = (
+				EDF7D542265E19EF00D4FAF7 /* RuneScape Stats */,
+				EDF7D541265E19EF00D4FAF7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EDF7D541265E19EF00D4FAF7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDF7D540265E19EF00D4FAF7 /* RuneScape Stats.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDF7D542265E19EF00D4FAF7 /* RuneScape Stats */ = {
+			isa = PBXGroup;
+			children = (
+				EDA54EF7266B6630006EA683 /* Font */,
+				EDA54DFC266B5999006EA683 /* View Controllers */,
+				EDF7D543265E19EF00D4FAF7 /* AppDelegate.swift */,
+				EDF7D545265E19EF00D4FAF7 /* SceneDelegate.swift */,
+				EDF7D549265E19EF00D4FAF7 /* Main.storyboard */,
+				EDF7D54C265E19EF00D4FAF7 /* Assets.xcassets */,
+				EDF7D54E265E19EF00D4FAF7 /* LaunchScreen.storyboard */,
+				EDF7D551265E19EF00D4FAF7 /* Info.plist */,
+				EDF7D55B265E24FF00D4FAF7 /* Stats.swift */,
+				EDAE4D2B266CA8850083636E /* SkillTitles.swift */,
+				EDAE4D2E266CA9A30083636E /* ExperienceTables.swift */,
+			);
+			path = "RuneScape Stats";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EDF7D53F265E19EF00D4FAF7 /* RuneScape Stats */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDF7D554265E19EF00D4FAF7 /* Build configuration list for PBXNativeTarget "RuneScape Stats" */;
+			buildPhases = (
+				EDF7D53C265E19EF00D4FAF7 /* Sources */,
+				EDF7D53D265E19EF00D4FAF7 /* Frameworks */,
+				EDF7D53E265E19EF00D4FAF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RuneScape Stats";
+			productName = "RuneScape Stats";
+			productReference = EDF7D540265E19EF00D4FAF7 /* RuneScape Stats.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDF7D538265E19EF00D4FAF7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					EDF7D53F265E19EF00D4FAF7 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+				};
+			};
+			buildConfigurationList = EDF7D53B265E19EF00D4FAF7 /* Build configuration list for PBXProject "RuneScape Stats" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDF7D537265E19EF00D4FAF7;
+			productRefGroup = EDF7D541265E19EF00D4FAF7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDF7D53F265E19EF00D4FAF7 /* RuneScape Stats */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EDF7D53E265E19EF00D4FAF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDA54EF9266B6637006EA683 /* runescape_uf.ttf in Resources */,
+				EDF7D550265E19EF00D4FAF7 /* LaunchScreen.storyboard in Resources */,
+				EDF7D54D265E19EF00D4FAF7 /* Assets.xcassets in Resources */,
+				EDF7D54B265E19EF00D4FAF7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDF7D53C265E19EF00D4FAF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDF7D548265E19EF00D4FAF7 /* PlayerSearchViewController.swift in Sources */,
+				EDAE4D35266F23A70083636E /* AdventureLogTableViewController.swift in Sources */,
+				EDA54DFA266B5295006EA683 /* StatsTableViewController.swift in Sources */,
+				EDAE4D28266CA5360083636E /* StatsDetailedViewController.swift in Sources */,
+				EDF7D55C265E24FF00D4FAF7 /* Stats.swift in Sources */,
+				EDAE4D2F266CA9A30083636E /* ExperienceTables.swift in Sources */,
+				EDF7D544265E19EF00D4FAF7 /* AppDelegate.swift in Sources */,
+				EDAE4D2C266CA8850083636E /* SkillTitles.swift in Sources */,
+				EDF7D546265E19EF00D4FAF7 /* SceneDelegate.swift in Sources */,
+				EDAE4D32266D26A20083636E /* AdventureLogViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EDF7D549265E19EF00D4FAF7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDF7D54A265E19EF00D4FAF7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EDF7D54E265E19EF00D4FAF7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDF7D54F265E19EF00D4FAF7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EDF7D552265E19EF00D4FAF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EDF7D553265E19EF00D4FAF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDF7D555265E19EF00D4FAF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HB72Z627AT;
+				INFOPLIST_FILE = "RuneScape Stats/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thomasdye.RuneScape-Stats";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDF7D556265E19EF00D4FAF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HB72Z627AT;
+				INFOPLIST_FILE = "RuneScape Stats/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thomasdye.RuneScape-Stats";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDF7D53B265E19EF00D4FAF7 /* Build configuration list for PBXProject "RuneScape Stats" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF7D552265E19EF00D4FAF7 /* Debug */,
+				EDF7D553265E19EF00D4FAF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDF7D554265E19EF00D4FAF7 /* Build configuration list for PBXNativeTarget "RuneScape Stats" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDF7D555265E19EF00D4FAF7 /* Debug */,
+				EDF7D556265E19EF00D4FAF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EDF7D538265E19EF00D4FAF7 /* Project object */;
+}

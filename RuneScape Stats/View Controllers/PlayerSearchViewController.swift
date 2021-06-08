@@ -50,10 +50,8 @@ class PlayerSearchViewController: UIViewController {
   }
   
   func checkUserdefaults() {
-    print("made it here...")
     if defaults.string(forKey: "username") != "" {
       guard let usernameSaved = defaults.string(forKey: "username") else { return }
-      print("username saved: \(usernameSaved)")
       usernameTextField.text = usernameSaved
     }
   }
@@ -98,12 +96,16 @@ class PlayerSearchViewController: UIViewController {
           print("Error: Could print JSON in String")
           return
         }
-        
+        print("pretty json: \(prettyJsonData)")
         if prettyPrintedJson.contains("NO_PROFILE") {
           stats.error = "NO_PROFILE"
         } else {
-        stats = try! JSONDecoder().decode(Stats.self, from: prettyJsonData)
+          do {
+            stats = try JSONDecoder().decode(Stats.self, from: prettyJsonData)
         print("it worked: \(prettyPrintedJson)")
+          } catch {
+            stats.error = "OSRS"
+          }
         }
       } catch {
         print("Error: Trying to convert JSON data to string")
@@ -136,15 +138,22 @@ class PlayerSearchViewController: UIViewController {
     defaults.setValue(username, forKey: "username")
     urlToGet = "https://apps.runescape.com/runemetrics/profile/profile?user=\(username)&activities=20"
     getMethod()
-    if stats.error != "NO_PROFILE" {
+    if stats.error == "NO_PROFILE" {
+      
+      let alert = UIAlertController(title: "Invalid Username", message: "You have entered an invalid RS3 username. Please try again.", preferredStyle: UIAlertController.Style.alert)
+      alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
+    } else if stats.error == "OSRS" {
+      
+      let alert = UIAlertController(title: "OSRS Account", message: "You have entered an OSRS username. Please try again.", preferredStyle: UIAlertController.Style.alert)
+      alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
+    } else {
+      
       stats.skillvalues.sort {
         $0.id < $1.id
       }
       performSegue(withIdentifier: "StatsTableViewSegue", sender: nil)
-    } else {
-      let alert = UIAlertController(title: "Invalid Username", message: "You have entered an invalid RS3 username. Please try again.", preferredStyle: UIAlertController.Style.alert)
-      alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-      self.present(alert, animated: true, completion: nil)
     }
   }
 }

@@ -29,7 +29,9 @@ class StatsDetailedViewController: UIViewController {
     print("total skills: \(arrayOfStandardSkillLevels.count)")
   }
   
+  // Setup stats
   func setupStats() {
+    
     // formatting xp to remove tenths place decimal
     var unformattedXP = String(selectedStat.xp)
     if unformattedXP != "0" {
@@ -55,10 +57,8 @@ class StatsDetailedViewController: UIViewController {
       levelDifference = 0
     }
     
-    // calculating progress as float
+    // calculating progress
     var progress: Float = 0.0
-    
-    
     var progressPercentage: Int = 0
     
     if selectedStat.level < 99 && selectedStat.xp > 0 {
@@ -82,11 +82,12 @@ class StatsDetailedViewController: UIViewController {
       levelProgressView.progressTintColor = upperUIColor
     }
     
-    // UI
+    // User Interface
     UIView.animate(withDuration: 1.0) {
       self.levelProgressView.setProgress(progress, animated: true)
     }
     
+    // Display text properly if level is less than 99
     if selectedStat.level < 99 {
     statsLabel.text = "Level: \(selectedStat.level)\nXP: \(formattedXP)\nNext: \(arrayOfStandardSkillLevels[selectedStat.level])\nRemaining: \(remainingXP)"
     currentLevelLabel.text = String(selectedStat.level)

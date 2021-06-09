@@ -222,40 +222,6 @@
             </objects>
             <point key="canvasLocation" x="1787" y="94"/>
         </scene>
-        <!--Adventure Log-->
-        <scene sceneID="Hdf-BL-xaI">
-            <objects>
-                <viewController id="NiN-sY-Msd" customClass="AdventureLogViewController" customModule="RuneScape_Stats" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3oH-iS-22Q">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="adventure log" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4X-3f-MED">
-                                <rect key="frame" x="10" y="54" width="394" height="798"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="4kx-OY-hEB"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="g4X-3f-MED" firstAttribute="top" secondItem="4kx-OY-hEB" secondAttribute="top" constant="10" id="I5d-aT-0l1"/>
-                            <constraint firstItem="4kx-OY-hEB" firstAttribute="trailing" secondItem="g4X-3f-MED" secondAttribute="trailing" constant="10" id="Jq8-pK-aci"/>
-                            <constraint firstItem="4kx-OY-hEB" firstAttribute="bottom" secondItem="g4X-3f-MED" secondAttribute="bottom" constant="10" id="bw3-ah-Ej0"/>
-                            <constraint firstItem="g4X-3f-MED" firstAttribute="leading" secondItem="4kx-OY-hEB" secondAttribute="leading" constant="10" id="veh-wz-3wR"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Adventure Log" id="yMU-Kr-Ejl"/>
-                    <connections>
-                        <outlet property="adventureLabel" destination="g4X-3f-MED" id="dwR-zf-ZFg"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iJL-eM-hmY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2567" y="-276"/>
-        </scene>
         <!--Adventure Log Table View Controller-->
         <scene sceneID="7EG-Xq-ug4">
             <objects>
@@ -296,9 +262,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

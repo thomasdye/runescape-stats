@@ -145,7 +145,7 @@ class PlayerSearchViewController: UIViewController {
       self.present(alert, animated: true, completion: nil)
     } else if stats.error == "OSRS" {
       
-      let alert = UIAlertController(title: "OSRS Account", message: "You have entered an OSRS username. Please try again.", preferredStyle: UIAlertController.Style.alert)
+      let alert = UIAlertController(title: "OSRS Account", message: "This app was designed to search for RS3 accounts. OSRS accounts may be supported in the future. Please enter an RS3 username and try again.", preferredStyle: UIAlertController.Style.alert)
       alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
       self.present(alert, animated: true, completion: nil)
     } else {

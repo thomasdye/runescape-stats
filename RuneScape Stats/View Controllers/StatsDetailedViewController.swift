@@ -24,8 +24,10 @@ class StatsDetailedViewController: UIViewController {
   let lowerMiddleUIColor: UIColor = UIColor(red: 0.97, green: 0.53, blue: 0.11, alpha: 1.00)
   let upperMiddleUIColor: UIColor = UIColor(red: 0.98, green: 0.82, blue: 0.00, alpha: 1.00)
   let upperUIColor: UIColor = UIColor(red: 0.42, green: 0.78, blue: 0.12, alpha: 1.00)
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.hideKeyboardWhenTappedAround() 
     title = skillTitles[selectedStat.id]
     print("stat level: \(selectedStat.level)")
     setupStats()

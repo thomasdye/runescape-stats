@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EDA097A02671F93A0033DF79 /* Keyboard Dismissal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA0979F2671F93A0033DF79 /* Keyboard Dismissal.swift */; };
 		EDA54DFA266B5295006EA683 /* StatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA54DF9266B5295006EA683 /* StatsTableViewController.swift */; };
 		EDA54EF9266B6637006EA683 /* runescape_uf.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDA54EF8266B6637006EA683 /* runescape_uf.ttf */; };
 		EDAE4D28266CA5360083636E /* StatsDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE4D27266CA5360083636E /* StatsDetailedViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EDA0979F2671F93A0033DF79 /* Keyboard Dismissal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard Dismissal.swift"; sourceTree = "<group>"; };
 		EDA54DF9266B5295006EA683 /* StatsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTableViewController.swift; sourceTree = "<group>"; };
 		EDA54EF8266B6637006EA683 /* runescape_uf.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = runescape_uf.ttf; sourceTree = "<group>"; };
 		EDAE4D27266CA5360083636E /* StatsDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDetailedViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				EDF7D55B265E24FF00D4FAF7 /* Stats.swift */,
 				EDAE4D2B266CA8850083636E /* SkillTitles.swift */,
 				EDAE4D2E266CA9A30083636E /* ExperienceTables.swift */,
+				EDA0979F2671F93A0033DF79 /* Keyboard Dismissal.swift */,
 			);
 			path = "RuneScape Stats";
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDF7D548265E19EF00D4FAF7 /* PlayerSearchViewController.swift in Sources */,
+				EDA097A02671F93A0033DF79 /* Keyboard Dismissal.swift in Sources */,
 				EDAE4D35266F23A70083636E /* AdventureLogTableViewController.swift in Sources */,
 				EDA54DFA266B5295006EA683 /* StatsTableViewController.swift in Sources */,
 				EDAE4D28266CA5360083636E /* StatsDetailedViewController.swift in Sources */,

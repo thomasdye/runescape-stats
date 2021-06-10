@@ -14,6 +14,9 @@ class StatsDetailedViewController: UIViewController {
   @IBOutlet weak var nextLevelLabel: UILabel!
   @IBOutlet weak var levelProgressLabel: UILabel!
   @IBOutlet weak var statIconImage: UIImageView!
+  @IBOutlet weak var checkLevelButton: UIButton!
+  @IBOutlet weak var checkLevelTextField: UITextField!
+  @IBOutlet weak var calculateLevelLabel: UILabel!
   
   var selectedStat: Skillvalue = Skillvalue(level: 0, xp: 0, rank: 0, id: 0)
   var nextLevel: Int = 0
@@ -31,7 +34,8 @@ class StatsDetailedViewController: UIViewController {
   
   // Setup stats
   func setupStats() {
-    
+    calculateLevelLabel.text = ""
+    checkLevelButton.setTitle("Check Level", for: .normal)
     // formatting xp to remove tenths place decimal
     var unformattedXP = String(selectedStat.xp)
     if unformattedXP != "0" {
@@ -88,18 +92,63 @@ class StatsDetailedViewController: UIViewController {
     }
     
     // Display text properly if level is less than 99
+    let formattedXPToUse = formatXPNumber(unformattedNumber: selectedStat.xp, removeLastDigit: true)
+    let formattedRemainingXPToUse = formatXPNumber(unformattedNumber: remainingXP, removeLastDigit: false)
+    var nextLevelXPToUse: String = ""
     if selectedStat.level < 99 {
-    statsLabel.text = "Level: \(selectedStat.level)\nXP: \(formattedXP)\nNext: \(arrayOfStandardSkillLevels[selectedStat.level])\nRemaining: \(remainingXP)"
+    nextLevelXPToUse = formatXPNumber(unformattedNumber: arrayOfStandardSkillLevels[selectedStat.level], removeLastDigit: false)
+    } else {
+      nextLevelXPToUse = "0"
+    }
+    if selectedStat.level < 99 {
+    statsLabel.text = "Level: \(selectedStat.level)\nXP: \(formattedXPToUse)\nNext: \(nextLevelXPToUse)\nRemaining: \(formattedRemainingXPToUse)"
     currentLevelLabel.text = String(selectedStat.level)
     nextLevelLabel.text = String(selectedStat.level + 1)
     levelProgressLabel.text = "\(progressPercentage)%"
     statIconImage.image = UIImage(named: skillTitles[selectedStat.id])
     } else {
-      statsLabel.text = "Level: \(selectedStat.level)\nXP: \(formattedXP)\nNext: Max\nRemaining: \(remainingXP)"
+      statsLabel.text = "Level: \(selectedStat.level)\nXP: \(formattedXPToUse)\nNext: Max\nRemaining: \(formattedRemainingXPToUse)"
       currentLevelLabel.text = String(selectedStat.level)
       nextLevelLabel.text = String(selectedStat.level)
       levelProgressLabel.text = "\(progressPercentage)%"
       statIconImage.image = UIImage(named: skillTitles[selectedStat.id])
+    }
+  }
+  
+  
+  @IBAction func checkLevelButtonTapped(_ sender: Any) {
+    
+    // check level entered correctly
+    // unwrap level as a string
+    guard let levelAsString = checkLevelTextField.text else { return }
+    
+    // unwrap Int from string
+    guard let levelAsInt = Int(levelAsString) else { return }
+    
+    // if level entered less than current level or greater than 99
+    // I'll have to handle the exeptions for the levels past 99 later
+    if levelAsInt <= selectedStat.level {
+      let alert = UIAlertController(title: "Already Higher Level", message: "You are already a higher level than the level entered.", preferredStyle: UIAlertController.Style.alert)
+      alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
+      return
+    } else if levelAsInt > 99 {
+      let alert = UIAlertController(title: "Level Too High", message: "You have entered a level higher than the maximum possible level. Please try again.", preferredStyle: UIAlertController.Style.alert)
+      alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
+      return
+    }
+    
+    if selectedStat.level < 99 {
+      
+      // Get current XP subtracted from level entered
+      var currentXPAsString = String(selectedStat.xp)
+      currentXPAsString.removeLast()
+      guard let unwrappedCurrentXPAsInt = Int(currentXPAsString) else { return }
+      let goalXP = arrayOfStandardSkillLevels[levelAsInt - 1]
+      let difference = formatXPNumber(unformattedNumber: (goalXP - unwrappedCurrentXPAsInt), removeLastDigit: false)
+      
+      calculateLevelLabel.text = "Level Goal: \(levelAsInt)\nRemaining: \(difference)"
     }
   }
 }

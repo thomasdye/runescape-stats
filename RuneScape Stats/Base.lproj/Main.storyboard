@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XHt-pH-ELS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -29,7 +30,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vYl-tw-nqq">
                                 <rect key="frame" x="50" y="223" width="314" height="34"/>
-                                <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="23"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3E-ve-1VD">
@@ -108,28 +109,65 @@
                                     <constraint firstAttribute="width" constant="59" id="TNC-ua-eog"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2H-pw-A26">
+                                <rect key="frame" x="147" y="774" width="120" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="c2S-93-vhP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="27"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Check Level"/>
+                                <connections>
+                                    <action selector="checkLevelButtonTapped:" destination="LAf-Zx-R6H" eventType="touchUpInside" id="AqG-b5-ynd"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="99" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cvj-h6-4J9">
+                                <rect key="frame" x="182" y="730" width="50" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="4QV-DS-dEI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="23"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDX-my-gOA">
+                                <rect key="frame" x="20" y="626" width="374" height="29"/>
+                                <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A5w-fw-jbR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Cvj-h6-4J9" firstAttribute="centerX" secondItem="A5w-fw-jbR" secondAttribute="centerX" id="0QO-AN-ALJ"/>
                             <constraint firstItem="A5w-fw-jbR" firstAttribute="trailing" secondItem="ojc-02-Zc5" secondAttribute="trailing" constant="20" id="AsG-eu-C2N"/>
+                            <constraint firstItem="VDX-my-gOA" firstAttribute="leading" secondItem="A5w-fw-jbR" secondAttribute="leading" constant="20" id="Ba0-Kb-Dfu"/>
                             <constraint firstItem="1Lm-Dh-gfm" firstAttribute="leading" secondItem="A5w-fw-jbR" secondAttribute="leading" constant="20" id="BdW-NV-CLS"/>
                             <constraint firstItem="A5w-fw-jbR" firstAttribute="trailing" secondItem="bf8-sn-qR2" secondAttribute="trailing" constant="10" id="Eey-CV-M3N"/>
                             <constraint firstItem="1Lm-Dh-gfm" firstAttribute="top" secondItem="kRZ-jr-I24" secondAttribute="bottom" constant="10" id="GPn-To-LBE"/>
                             <constraint firstItem="bf8-sn-qR2" firstAttribute="leading" secondItem="A5w-fw-jbR" secondAttribute="leading" constant="10" id="NXI-Se-dsa"/>
+                            <constraint firstItem="A5w-fw-jbR" firstAttribute="trailing" secondItem="VDX-my-gOA" secondAttribute="trailing" constant="20" id="Nb4-rs-CbB"/>
                             <constraint firstItem="bf8-sn-qR2" firstAttribute="top" secondItem="A5w-fw-jbR" secondAttribute="top" constant="20" id="Pii-8W-7Gr"/>
                             <constraint firstItem="A5w-fw-jbR" firstAttribute="trailing" secondItem="kRZ-jr-I24" secondAttribute="trailing" constant="20" id="UpS-Ux-azF"/>
+                            <constraint firstItem="VDX-my-gOA" firstAttribute="centerX" secondItem="A5w-fw-jbR" secondAttribute="centerX" id="WiM-E2-YRb"/>
                             <constraint firstItem="ojc-02-Zc5" firstAttribute="top" secondItem="kRZ-jr-I24" secondAttribute="bottom" constant="10" id="eEW-yn-YN7"/>
                             <constraint firstItem="Cnp-eL-zQI" firstAttribute="top" secondItem="p1g-ab-MML" secondAttribute="bottom" constant="30" id="f9c-Ue-Gfp"/>
+                            <constraint firstItem="l2H-pw-A26" firstAttribute="top" secondItem="Cvj-h6-4J9" secondAttribute="bottom" constant="10" id="haf-Q0-MCv"/>
                             <constraint firstItem="kRZ-jr-I24" firstAttribute="top" secondItem="bf8-sn-qR2" secondAttribute="bottom" constant="10" id="hgU-up-wSk"/>
+                            <constraint firstItem="Cvj-h6-4J9" firstAttribute="top" secondItem="VDX-my-gOA" secondAttribute="bottom" constant="75" id="i6Q-8Q-RBK"/>
                             <constraint firstItem="Cnp-eL-zQI" firstAttribute="centerX" secondItem="A5w-fw-jbR" secondAttribute="centerX" id="jox-tr-zc0"/>
+                            <constraint firstItem="l2H-pw-A26" firstAttribute="centerX" secondItem="A5w-fw-jbR" secondAttribute="centerX" id="oma-Hi-oB1"/>
                             <constraint firstItem="kRZ-jr-I24" firstAttribute="leading" secondItem="A5w-fw-jbR" secondAttribute="leading" constant="20" id="q3i-CX-sqI"/>
                             <constraint firstItem="p1g-ab-MML" firstAttribute="top" secondItem="kRZ-jr-I24" secondAttribute="bottom" constant="10" id="qkK-Eg-VEZ"/>
+                            <constraint firstItem="l2H-pw-A26" firstAttribute="bottom" secondItem="A5w-fw-jbR" secondAttribute="bottom" id="sUJ-RT-bkR"/>
                             <constraint firstItem="p1g-ab-MML" firstAttribute="centerX" secondItem="A5w-fw-jbR" secondAttribute="centerX" id="xN1-8n-jL8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="71Q-29-oly"/>
                     <connections>
+                        <outlet property="calculateLevelLabel" destination="VDX-my-gOA" id="A4A-8c-eRa"/>
+                        <outlet property="checkLevelButton" destination="l2H-pw-A26" id="Rnj-Tz-UIj"/>
+                        <outlet property="checkLevelTextField" destination="Cvj-h6-4J9" id="N84-Z7-srC"/>
                         <outlet property="currentLevelLabel" destination="1Lm-Dh-gfm" id="cOI-VV-AbW"/>
                         <outlet property="levelProgressLabel" destination="p1g-ab-MML" id="kRr-iV-bPk"/>
                         <outlet property="levelProgressView" destination="kRZ-jr-I24" id="KSy-5Z-y8e"/>

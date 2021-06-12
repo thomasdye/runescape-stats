@@ -12,7 +12,7 @@ class PlayerDetailViewController: UIViewController, UITableViewDataSource {
   @IBOutlet weak var adventureLogTableView: UITableView!
   
   override func viewDidLoad() {
-        super.viewDidLoad()
+    super.viewDidLoad()
     self.adventureLogTableView.register(UITableViewCell.self, forCellReuseIdentifier: "AdventureLog")
     self.adventureLogTableView.dataSource = self
     }
@@ -30,18 +30,18 @@ class PlayerDetailViewController: UIViewController, UITableViewDataSource {
     let details = stats.activities[indexPath.row].details
     let unformattedDate = stats.activities[indexPath.row].date
     var date = unformattedDate.replacingOccurrences(of: "-", with: " ")
+    date.removeLast(5)
     
     if date.starts(with: "0") {
       date.removeFirst()
     }
-    date.removeLast(5)
+
     for skill in skillTitles {
       if details.contains(skill) {
         cell.imageView?.image = UIImage(named: skill)
       }
     }
     cell.textLabel?.text = "\(date)\n\(details)"
-    
     return cell
   }
 }

@@ -12,7 +12,7 @@ class StatsTableViewController: UITableViewController {
   let reuseIdentifier: String = "StatsCell"
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+      super.viewDidLoad()
       title = "\(stats.name)"
 
     }

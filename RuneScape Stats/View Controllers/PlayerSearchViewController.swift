@@ -7,35 +7,15 @@
 
 import UIKit
 
-var urlToGet: String = ""
-var username: String = ""
-let baseURL: String = "https://apps.runescape.com/runemetrics/profile/profile?user=\(username)&activities=20"
-let defaults = UserDefaults.standard
-var stats: Stats = Stats(magic: 1,
-                         questsstarted: 1,
-                         totalskill: 1,
-                         questscomplete: 1,
-                         questsnotstarted: 1,
-                         totalxp: 1,
-                         ranged: 1,
-                         activities: [.init(date: "",
-                                            details: "",
-                                            text: "")],
-                         skillvalues: [.init(level: 1,
-                                             xp: 1,
-                                             rank: 1,
-                                             id: 1)],
-                         name: "",
-                         rank: "",
-                         melee: 1,
-                         combatlevel: 1,
-                         loggedIn: "")
-
 class PlayerSearchViewController: UIViewController {
 
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var usernameTextField: UITextField!
   @IBOutlet weak var submitButton: UIButton!
+  
+  let defaults = UserDefaults.standard
+  var urlToGet: String = ""
+  var username: String = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -49,6 +29,7 @@ class PlayerSearchViewController: UIViewController {
 
   }
   
+  // check if a username has been searched for while previously using the app
   func checkUserdefaults() {
     if defaults.string(forKey: "username") != "" {
       guard let usernameSaved = defaults.string(forKey: "username") else { return }
@@ -56,6 +37,7 @@ class PlayerSearchViewController: UIViewController {
     }
   }
 
+  // request data
   func getMethod() {
     print("url to get: \(urlToGet)")
     let urlAddingSpaces = urlToGet.replacingOccurrences(of: " ", with: "%20")
@@ -64,10 +46,10 @@ class PlayerSearchViewController: UIViewController {
       return
     }
     
-    // Create the url request
+    // create the url request & use semaphore to wait for data
     var request = URLRequest(url: url)
-    
     let semaphore = DispatchSemaphore(value: 0)
+    
     request.httpMethod = "GET"
     URLSession.shared.dataTask(with: request) { data, response, error in
       guard error == nil else {
@@ -96,6 +78,8 @@ class PlayerSearchViewController: UIViewController {
           print("Error: Could print JSON in String")
           return
         }
+        
+        // if profile doesn't exist
         print("pretty json: \(prettyJsonData)")
         if prettyPrintedJson.contains("NO_PROFILE") {
           stats.error = "NO_PROFILE"
@@ -104,6 +88,7 @@ class PlayerSearchViewController: UIViewController {
             stats = try JSONDecoder().decode(Stats.self, from: prettyJsonData)
         print("it worked: \(prettyPrintedJson)")
           } catch {
+            // if profile is OSRS account
             stats.error = "OSRS"
           }
         }
@@ -117,6 +102,7 @@ class PlayerSearchViewController: UIViewController {
     _ = semaphore.wait(wallTimeout: .distantFuture)
   }
   
+  // UI setup
   func setup() {
     // title
     titleLabel.text = "Enter Character Name"
@@ -129,15 +115,19 @@ class PlayerSearchViewController: UIViewController {
     submitButton.setTitle("Submit", for: .normal)
   }
   
+  // clear username field when returning to UIViewController
   func clearFields() {
     usernameTextField.text = ""
   }
     
+  // submit button tapped
   @IBAction func submitButtonTapped(_ sender: Any) {
     username = usernameTextField.text!
     defaults.setValue(username, forKey: "username")
     urlToGet = "https://apps.runescape.com/runemetrics/profile/profile?user=\(username)&activities=20"
     getMethod()
+    
+    // catch for invalid username / OSRS account
     if stats.error == "NO_PROFILE" {
       
       let alert = UIAlertController(title: "Invalid Username", message: "You have entered an invalid RS3 username. Please try again.", preferredStyle: UIAlertController.Style.alert)
@@ -150,6 +140,7 @@ class PlayerSearchViewController: UIViewController {
       self.present(alert, animated: true, completion: nil)
     } else {
       
+      // if valid account, sort by id (skill)
       stats.skillvalues.sort {
         $0.id < $1.id
       }

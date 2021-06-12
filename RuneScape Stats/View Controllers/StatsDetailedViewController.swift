@@ -34,15 +34,19 @@ class StatsDetailedViewController: UIViewController {
     print("total skills: \(arrayOfStandardSkillLevels.count)")
   }
   
-  // Setup stats
+  // setup stats
   func setupStats() {
+    
     calculateLevelLabel.text = ""
     checkLevelButton.setTitle("Check Level", for: .normal)
+    
     // formatting xp to remove tenths place decimal
     var unformattedXP = String(selectedStat.xp)
+    
     if unformattedXP != "0" {
     unformattedXP.removeLast()
     }
+    
     guard let formattedXP = Int(unformattedXP) else { return }
     
     // calculating remaining xp to next level
@@ -88,20 +92,23 @@ class StatsDetailedViewController: UIViewController {
       levelProgressView.progressTintColor = upperUIColor
     }
     
-    // User Interface
+    // animate level percentage bar
     UIView.animate(withDuration: 1.0) {
       self.levelProgressView.setProgress(progress, animated: true)
     }
     
-    // Display text properly if level is less than 99
+    // display text properly if level is less than 99 (catch for below current level and above max level)
     let formattedXPToUse = formatXPNumber(unformattedNumber: selectedStat.xp, removeLastDigit: true)
     let formattedRemainingXPToUse = formatXPNumber(unformattedNumber: remainingXP, removeLastDigit: false)
     var nextLevelXPToUse: String = ""
+    
+    
     if selectedStat.level < 99 {
     nextLevelXPToUse = formatXPNumber(unformattedNumber: arrayOfStandardSkillLevels[selectedStat.level], removeLastDigit: false)
     } else {
       nextLevelXPToUse = "0"
     }
+    
     if selectedStat.level < 99 {
     statsLabel.text = "Level: \(selectedStat.level)\nXP: \(formattedXPToUse)\nNext: \(nextLevelXPToUse)\nRemaining: \(formattedRemainingXPToUse)"
     currentLevelLabel.text = String(selectedStat.level)

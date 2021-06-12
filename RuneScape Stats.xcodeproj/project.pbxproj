@@ -13,7 +13,7 @@
 		EDAE4D28266CA5360083636E /* StatsDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE4D27266CA5360083636E /* StatsDetailedViewController.swift */; };
 		EDAE4D2C266CA8850083636E /* SkillTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE4D2B266CA8850083636E /* SkillTitles.swift */; };
 		EDAE4D2F266CA9A30083636E /* ExperienceTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE4D2E266CA9A30083636E /* ExperienceTables.swift */; };
-		EDAE4D35266F23A70083636E /* AdventureLogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE4D34266F23A70083636E /* AdventureLogTableViewController.swift */; };
+		EDCE51C326748C3100956B61 /* PlayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE51C226748C3100956B61 /* PlayerDetailViewController.swift */; };
 		EDF7D544265E19EF00D4FAF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7D543265E19EF00D4FAF7 /* AppDelegate.swift */; };
 		EDF7D546265E19EF00D4FAF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7D545265E19EF00D4FAF7 /* SceneDelegate.swift */; };
 		EDF7D548265E19EF00D4FAF7 /* PlayerSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7D547265E19EF00D4FAF7 /* PlayerSearchViewController.swift */; };
@@ -30,7 +30,7 @@
 		EDAE4D27266CA5360083636E /* StatsDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDetailedViewController.swift; sourceTree = "<group>"; };
 		EDAE4D2B266CA8850083636E /* SkillTitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTitles.swift; sourceTree = "<group>"; };
 		EDAE4D2E266CA9A30083636E /* ExperienceTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceTables.swift; sourceTree = "<group>"; };
-		EDAE4D34266F23A70083636E /* AdventureLogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdventureLogTableViewController.swift; sourceTree = "<group>"; };
+		EDCE51C226748C3100956B61 /* PlayerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewController.swift; sourceTree = "<group>"; };
 		EDF7D540265E19EF00D4FAF7 /* RuneScape Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RuneScape Stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF7D543265E19EF00D4FAF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDF7D545265E19EF00D4FAF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 				EDF7D547265E19EF00D4FAF7 /* PlayerSearchViewController.swift */,
 				EDA54DF9266B5295006EA683 /* StatsTableViewController.swift */,
 				EDAE4D27266CA5360083636E /* StatsDetailedViewController.swift */,
-				EDAE4D34266F23A70083636E /* AdventureLogTableViewController.swift */,
+				EDCE51C226748C3100956B61 /* PlayerDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -180,7 +180,7 @@
 			files = (
 				EDF7D548265E19EF00D4FAF7 /* PlayerSearchViewController.swift in Sources */,
 				EDA097A02671F93A0033DF79 /* Keyboard Dismissal.swift in Sources */,
-				EDAE4D35266F23A70083636E /* AdventureLogTableViewController.swift in Sources */,
+				EDCE51C326748C3100956B61 /* PlayerDetailViewController.swift in Sources */,
 				EDA54DFA266B5295006EA683 /* StatsTableViewController.swift in Sources */,
 				EDAE4D28266CA5360083636E /* StatsDetailedViewController.swift in Sources */,
 				EDF7D55C265E24FF00D4FAF7 /* Stats.swift in Sources */,

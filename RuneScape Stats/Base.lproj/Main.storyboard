@@ -250,7 +250,7 @@
                     <navigationItem key="navigationItem" id="PU8-SJ-xqz">
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="H4D-nz-tst">
                             <connections>
-                                <segue destination="XAu-Cb-Qld" kind="show" id="LYM-rW-Cqw"/>
+                                <segue destination="Plt-9q-A33" kind="show" id="BwY-OZ-nvo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -259,6 +259,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAh-KD-AiR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1787" y="94"/>
+        </scene>
+        <!--Player Detail View Controller-->
+        <scene sceneID="jQ6-No-shh">
+            <objects>
+                <viewController id="Plt-9q-A33" customClass="PlayerDetailViewController" customModule="RuneScape_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="elp-F7-AqE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bKE-88-dyp">
+                                <rect key="frame" x="0.0" y="613" width="414" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="e0e-It-ZUo"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdventureLog" textLabel="tFw-Yv-HSl" style="IBUITableViewCellStyleDefault" id="Z6i-7O-3vF">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z6i-7O-3vF" id="aN7-a4-NCJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="tFw-Yv-HSl">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Dv6-OW-6tf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Dv6-OW-6tf" firstAttribute="trailing" secondItem="bKE-88-dyp" secondAttribute="trailing" id="3m5-bn-307"/>
+                            <constraint firstItem="Dv6-OW-6tf" firstAttribute="bottom" secondItem="bKE-88-dyp" secondAttribute="bottom" id="4Ue-kc-hTJ"/>
+                            <constraint firstItem="bKE-88-dyp" firstAttribute="leading" secondItem="Dv6-OW-6tf" secondAttribute="leading" id="4nb-8y-W5a"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Vr6-Mh-OFH"/>
+                    <connections>
+                        <outlet property="adventureLogTableView" destination="bKE-88-dyp" id="ps0-DD-P72"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HmL-tO-7oK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2593" y="-252"/>
         </scene>
         <!--Adventure Log Table View Controller-->
         <scene sceneID="7EG-Xq-ug4">

@@ -14,7 +14,8 @@ class PlayerSearchViewController: UIViewController {
   @IBOutlet weak var submitButton: UIButton!
   
   let defaults = UserDefaults.standard
-  var urlToGet: String = ""
+  var statsURL: String = ""
+  var questURL: String = ""
   var username: String = ""
   
   override func viewDidLoad() {
@@ -36,11 +37,27 @@ class PlayerSearchViewController: UIViewController {
       usernameTextField.text = usernameSaved
     }
   }
+  
+  // get quests
+  func getQuests() {
+    if let url = URL(string: questURL) {
+      URLSession.shared.dataTask(with: url) { data, response, error in
+        if let data = data {
+          let jsonDecoder = JSONDecoder()
+          do {
+            let parsedJSON = try jsonDecoder.decode(Quests.self, from: data)
+            stats.quests = parsedJSON
+          } catch {
+            print(error)
+          }
+        }
+      }.resume()
+    }
+  }
 
-  // request data
-  func getMethod() {
-    print("url to get: \(urlToGet)")
-    let urlAddingSpaces = urlToGet.replacingOccurrences(of: " ", with: "%20")
+  // get stats
+  func getStats() {
+    let urlAddingSpaces = statsURL.replacingOccurrences(of: " ", with: "%20")
     guard let url = URL(string: urlAddingSpaces) else {
       print("Error: cannot create URL")
       return
@@ -80,13 +97,11 @@ class PlayerSearchViewController: UIViewController {
         }
         
         // if profile doesn't exist
-        print("pretty json: \(prettyJsonData)")
         if prettyPrintedJson.contains("NO_PROFILE") {
           stats.error = "NO_PROFILE"
         } else {
           do {
             stats = try JSONDecoder().decode(Stats.self, from: prettyJsonData)
-        print("it worked: \(prettyPrintedJson)")
           } catch {
             // if profile is OSRS account
             stats.error = "OSRS"
@@ -124,8 +139,10 @@ class PlayerSearchViewController: UIViewController {
   @IBAction func submitButtonTapped(_ sender: Any) {
     username = usernameTextField.text!
     defaults.setValue(username, forKey: "username")
-    urlToGet = "https://apps.runescape.com/runemetrics/profile/profile?user=\(username)&activities=20"
-    getMethod()
+    statsURL = "https://apps.runescape.com/runemetrics/profile/profile?user=\(username)&activities=20"
+    questURL = "https://apps.runescape.com/runemetrics/quests?user=\(username)"
+    getStats()
+    getQuests()
     
     // catch for invalid username / OSRS account
     if stats.error == "NO_PROFILE" {

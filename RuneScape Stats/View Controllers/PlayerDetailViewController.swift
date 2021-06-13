@@ -10,12 +10,33 @@ import UIKit
 class PlayerDetailViewController: UIViewController, UITableViewDataSource {
 
   @IBOutlet weak var adventureLogTableView: UITableView!
+  @IBOutlet weak var playerDetailLabel: UILabel!
+  @IBOutlet weak var attackImage: UIImageView!
+  @IBOutlet weak var strengthImage: UIImageView!
+  @IBOutlet weak var defenceImage: UIImageView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setup()
+    title = stats.name
     self.adventureLogTableView.register(UITableViewCell.self, forCellReuseIdentifier: "AdventureLog")
     self.adventureLogTableView.dataSource = self
     }
+  
+  func setup() {
+    // top images
+    attackImage.image = UIImage(named: "Attack")
+    strengthImage.image = UIImage(named: "Strength")
+    defenceImage.image = UIImage(named: "Defence")
+    
+    
+    // player detail label
+    playerDetailLabel.numberOfLines = 0
+    playerDetailLabel.font = UIFont(name: "RuneScape-UF", size: 20)
+    playerDetailLabel.textAlignment = .center
+    playerDetailLabel.text = "Combat Level: \(stats.combatlevel)\nRank:\(stats.rank)\nTotal XP:\(stats.totalxp)\nMelee: \(stats.melee)\nRanged: \(stats.ranged)\nMagic: \(stats.magic)"
+    
+  }
     
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return stats.activities.count

@@ -17,6 +17,7 @@ struct Stats: Codable {
   var melee, combatlevel: Int
   var loggedIn: String
   var error: String?
+  var quests: Quests?
 }
 
 // MARK: - Activity
@@ -29,7 +30,26 @@ struct Skillvalue: Codable {
   var level, xp, rank, id: Int
 }
 
-// create empty stats
+struct Quests: Codable {
+  var quests: [Quest]
+  var loggedIn: String
+}
+
+struct Quest: Codable {
+  let title: String
+  let status: Status
+  let difficulty: Int
+  let members: Bool
+  let questPoints: Int
+  let userEligible: Bool
+}
+
+enum Status: String, Codable {
+  case completed = "COMPLETED"
+  case notStarted = "NOT_STARTED"
+  case started = "STARTED"
+}
+
 var stats: Stats = Stats(magic: 1,
                          questsstarted: 1,
                          totalskill: 1,
@@ -48,4 +68,5 @@ var stats: Stats = Stats(magic: 1,
                          rank: "",
                          melee: 1,
                          combatlevel: 1,
-                         loggedIn: "")
+                         loggedIn: "",
+                         quests: Quests(quests: [], loggedIn: ""))

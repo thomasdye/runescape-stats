@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StatsDetailedViewController: UIViewController {
+class StatsDetailViewController: UIViewController {
   @IBOutlet weak var statsLabel: UILabel!
   @IBOutlet weak var levelProgressView: UIProgressView!
   @IBOutlet weak var currentLevelLabel: UILabel!

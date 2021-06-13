@@ -8,8 +8,6 @@
 import UIKit
 
 class StatsTableViewController: UITableViewController {
-  
-  let reuseIdentifier: String = "StatsCell"
 
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -30,7 +28,7 @@ class StatsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+      let cell = tableView.dequeueReusableCell(withIdentifier: "StatsCell", for: indexPath)
       let unformatedXP = stats.skillvalues[indexPath.row].xp
       var removeLastFromXP = String(unformatedXP)
       removeLastFromXP.removeLast()
@@ -55,7 +53,7 @@ class StatsTableViewController: UITableViewController {
       if segue.identifier == "DetailSkillSegue" {
         
         guard let indexPath = tableView.indexPathForSelectedRow,
-              let statsDetailVC = segue.destination as? StatsDetailedViewController else { return }
+              let statsDetailVC = segue.destination as? StatsDetailViewController else { return }
         
         let selectedStat = stats.skillvalues[indexPath.row]
         statsDetailVC.selectedStat = selectedStat

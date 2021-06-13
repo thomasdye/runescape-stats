@@ -47,42 +47,39 @@ class QuestsTableViewController: UITableViewController {
       var isEligible: String = ""
       var currentStatus: String = ""
       
-      if questMembers == true {
+      switch questMembers {
+      case true:
         isMembers = "Yes"
-      } else {
+      case false:
         isMembers = "No"
       }
       
-      if questEligible == true {
+      switch questEligible {
+      case true:
         isEligible = "Yes"
-      } else {
+      case false:
         isEligible = "No"
       }
       
-      if questStatus == .completed {
-        cell.accessoryType = .checkmark
+      switch questStatus {
+      case .completed:
         currentStatus = "Completed"
-      } else if questStatus == .notStarted {
-        cell.accessoryType = .none
+        cell.accessoryType = .checkmark
+      case .notStarted:
         currentStatus = "Not Started"
-      } else if questStatus == .started {
         cell.accessoryType = .none
+      case .started:
         currentStatus = "Started"
+        cell.accessoryType = .none
       }
+      cell.textLabel?.text = questTitle
+      cell.detailTextLabel?.text = "Status: \(currentStatus)\nDifficulty: \(questDifficulty)\nMembers: \(isMembers)\nPoints: \(questPoints)\nEligible: \(isEligible)"
       
-      
-      
-      cell.textLabel?.text = "\(questTitle)\nStatus: \(currentStatus)\nDifficulty: \(questDifficulty)\nMembers: \(isMembers)\nPoints: \(questPoints)\nEligible: \(isEligible)"
-
-
-        return cell
+      return cell
     }
-
-
   
-    // MARK: - Navigation
-  
-  override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+  // this doesnt work right... yet...
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
     guard let titleToSearchWithSpaces = stats.quests?.quests[indexPath.row].title else { return }
     let titleToSearch = titleToSearchWithSpaces.replacingOccurrences(of: " ", with: "%20")
@@ -91,6 +88,5 @@ class QuestsTableViewController: UITableViewController {
     UIApplication.shared.open(url, options: [:], completionHandler: nil)
 
   }
-  
 
 }

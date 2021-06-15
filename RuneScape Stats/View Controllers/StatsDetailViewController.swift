@@ -44,7 +44,7 @@ class StatsDetailViewController: UIViewController {
     var unformattedXP = String(selectedStat.xp)
     
     if unformattedXP != "0" {
-    unformattedXP.removeLast()
+      unformattedXP.removeLast()
     }
     
     guard let formattedXP = Int(unformattedXP) else { return }
@@ -62,7 +62,7 @@ class StatsDetailViewController: UIViewController {
     var levelDifference:Int = 0
     
     if selectedStat.level < 99 {
-    levelDifference = arrayOfStandardSkillLevels[selectedStat.level] - arrayOfStandardSkillLevels[selectedStat.level - 1]
+      levelDifference = arrayOfStandardSkillLevels[selectedStat.level] - arrayOfStandardSkillLevels[selectedStat.level - 1]
     } else {
       levelDifference = 0
     }
@@ -104,17 +104,17 @@ class StatsDetailViewController: UIViewController {
     
     
     if selectedStat.level < 99 {
-    nextLevelXPToUse = formatXPNumber(unformattedNumber: arrayOfStandardSkillLevels[selectedStat.level], removeLastDigit: false)
+      nextLevelXPToUse = formatXPNumber(unformattedNumber: arrayOfStandardSkillLevels[selectedStat.level], removeLastDigit: false)
     } else {
       nextLevelXPToUse = "0"
     }
     
     if selectedStat.level < 99 {
-    statsLabel.text = "Level: \(selectedStat.level)\nXP: \(formattedXPToUse)\nNext: \(nextLevelXPToUse)\nRemaining: \(formattedRemainingXPToUse)"
-    currentLevelLabel.text = String(selectedStat.level)
-    nextLevelLabel.text = String(selectedStat.level + 1)
-    levelProgressLabel.text = "\(progressPercentage)%"
-    statIconImage.image = UIImage(named: skillTitles[selectedStat.id])
+      statsLabel.text = "Level: \(selectedStat.level)\nXP: \(formattedXPToUse)\nNext: \(nextLevelXPToUse)\nRemaining: \(formattedRemainingXPToUse)"
+      currentLevelLabel.text = String(selectedStat.level)
+      nextLevelLabel.text = String(selectedStat.level + 1)
+      levelProgressLabel.text = "\(progressPercentage)%"
+      statIconImage.image = UIImage(named: skillTitles[selectedStat.id])
     } else {
       statsLabel.text = "Level: \(selectedStat.level)\nXP: \(formattedXPToUse)\nNext: Max\nRemaining: \(formattedRemainingXPToUse)"
       currentLevelLabel.text = String(selectedStat.level)

@@ -8,7 +8,7 @@
 import UIKit
 
 class PlayerDetailViewController: UIViewController, UITableViewDataSource {
-
+  
   @IBOutlet weak var adventureLogTableView: UITableView!
   @IBOutlet weak var playerDetailLabel: UILabel!
   @IBOutlet weak var attackImage: UIImageView!
@@ -21,7 +21,7 @@ class PlayerDetailViewController: UIViewController, UITableViewDataSource {
     title = stats.name
     self.adventureLogTableView.register(UITableViewCell.self, forCellReuseIdentifier: "AdventureLog")
     self.adventureLogTableView.dataSource = self
-    }
+  }
   
   func setup() {
     // top images
@@ -37,7 +37,7 @@ class PlayerDetailViewController: UIViewController, UITableViewDataSource {
     playerDetailLabel.text = "Combat Level: \(stats.combatlevel)\nRank:\(stats.rank)\nTotal XP:\(stats.totalxp)\nMelee: \(stats.melee)\nRanged: \(stats.ranged)\nMagic: \(stats.magic)"
     
   }
-    
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return stats.activities.count
   }
@@ -56,7 +56,7 @@ class PlayerDetailViewController: UIViewController, UITableViewDataSource {
     if date.starts(with: "0") {
       date.removeFirst()
     }
-
+    
     for skill in skillTitles {
       if details.contains(skill) {
         cell.imageView?.image = UIImage(named: skill)

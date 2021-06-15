@@ -41,15 +41,42 @@
                                     <action selector="submitButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UAW-kS-Eyz"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="llH-9n-mo3">
+                                <rect key="frame" x="0.0" y="369" width="414" height="493"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecentSearchCell" id="Fa2-IW-Vpg">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fa2-IW-Vpg" id="d7H-KP-zhj">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent Searches" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8S-SQ-3NW">
+                                <rect key="frame" x="0.0" y="346" width="414" height="18"/>
+                                <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2sY-tH-OPG" secondAttribute="trailing" constant="2" id="35W-Wo-ebT"/>
+                            <constraint firstItem="T8S-SQ-3NW" firstAttribute="top" secondItem="X3E-ve-1VD" secondAttribute="bottom" constant="30" id="3qN-7X-yfB"/>
+                            <constraint firstItem="llH-9n-mo3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4Os-d6-G0g"/>
                             <constraint firstItem="vYl-tw-nqq" firstAttribute="top" secondItem="2sY-tH-OPG" secondAttribute="bottom" constant="20" id="8xw-KG-ms4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vYl-tw-nqq" secondAttribute="trailing" constant="50" id="9Q9-dU-1GX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T8S-SQ-3NW" secondAttribute="trailing" id="DKY-zL-cWj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="llH-9n-mo3" secondAttribute="trailing" id="Dz8-oy-YgB"/>
                             <constraint firstItem="2sY-tH-OPG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="E54-zd-YkH"/>
                             <constraint firstItem="X3E-ve-1VD" firstAttribute="top" secondItem="vYl-tw-nqq" secondAttribute="bottom" constant="20" id="EQt-AV-QO5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="llH-9n-mo3" secondAttribute="bottom" id="H0E-SQ-s35"/>
+                            <constraint firstItem="T8S-SQ-3NW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lau-ca-j01"/>
+                            <constraint firstItem="llH-9n-mo3" firstAttribute="top" secondItem="T8S-SQ-3NW" secondAttribute="bottom" constant="5" id="ZoS-Ho-U39"/>
                             <constraint firstItem="2sY-tH-OPG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="2" id="kbx-W6-mfx"/>
                             <constraint firstItem="vYl-tw-nqq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="qSv-SX-f6e"/>
                             <constraint firstItem="X3E-ve-1VD" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tTy-dv-ckv"/>
@@ -57,6 +84,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="RuneScape Stats" id="aMm-Hn-TQ1"/>
                     <connections>
+                        <outlet property="recentSearchTableView" destination="llH-9n-mo3" id="5Qy-lm-Td2"/>
                         <outlet property="submitButton" destination="X3E-ve-1VD" id="xDF-4K-UyT"/>
                         <outlet property="titleLabel" destination="2sY-tH-OPG" id="WRa-4s-eag"/>
                         <outlet property="usernameTextField" destination="vYl-tw-nqq" id="TQx-Ef-0Qo"/>
@@ -248,7 +276,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="PU8-SJ-xqz">
-                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="H4D-nz-tst">
+                        <barButtonItem key="rightBarButtonItem" title="Adventure Log" id="H4D-nz-tst">
                             <connections>
                                 <segue destination="Plt-9q-A33" kind="show" id="BwY-OZ-nvo"/>
                             </connections>
@@ -269,7 +297,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bKE-88-dyp">
-                                <rect key="frame" x="0.0" y="353.5" width="414" height="459.5"/>
+                                <rect key="frame" x="0.0" y="301.5" width="414" height="511.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdventureLog" textLabel="tFw-Yv-HSl" style="IBUITableViewCellStyleDefault" id="Z6i-7O-3vF">
@@ -292,19 +320,19 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adventure Log" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXx-vG-hrX">
-                                <rect key="frame" x="20" y="319.5" width="374" height="29"/>
+                                <rect key="frame" x="20" y="267.5" width="374" height="29"/>
                                 <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stats" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4z2-hW-o9C">
-                                <rect key="frame" x="10" y="150" width="394" height="35"/>
+                                <rect key="frame" x="10" y="98" width="394" height="35"/>
                                 <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="nE5-sR-1SD">
-                                <rect key="frame" x="50" y="195" width="314" height="59"/>
+                                <rect key="frame" x="50" y="143" width="314" height="59"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HcY-Oa-iEj">
                                         <rect key="frame" x="0.0" y="0.0" width="59" height="59"/>
@@ -330,7 +358,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stats go here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aij-RR-2PP">
-                                <rect key="frame" x="20" y="269" width="374" height="20.5"/>
+                                <rect key="frame" x="20" y="217" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -357,7 +385,7 @@
                             <constraint firstItem="Dv6-OW-6tf" firstAttribute="trailing" secondItem="nE5-sR-1SD" secondAttribute="trailing" constant="50" id="znG-L3-wEf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Vr6-Mh-OFH">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Vr6-Mh-OFH">
                         <barButtonItem key="rightBarButtonItem" title="Quests" id="crS-8P-AOF">
                             <connections>
                                 <segue destination="VN6-ab-0au" kind="show" id="Tti-Mm-EbS"/>
@@ -374,48 +402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HmL-tO-7oK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2592.753623188406" y="-252.45535714285714"/>
-        </scene>
-        <!--Quest View Controller-->
-        <scene sceneID="5CE-HY-kak">
-            <objects>
-                <viewController id="nG0-VV-UOJ" customClass="QuestViewController" customModule="RuneScape_Stats" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="afh-Er-aCv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quests" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sov-DL-u7b">
-                                <rect key="frame" x="0.0" y="64" width="414" height="35"/>
-                                <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="35"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quests go here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJZ-RV-5vr">
-                                <rect key="frame" x="0.0" y="114" width="414" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="0xC-oe-1dE"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="pJZ-RV-5vr" firstAttribute="leading" secondItem="0xC-oe-1dE" secondAttribute="leading" id="9fb-6v-FLo"/>
-                            <constraint firstItem="Sov-DL-u7b" firstAttribute="leading" secondItem="0xC-oe-1dE" secondAttribute="leading" id="Czg-5G-gWY"/>
-                            <constraint firstItem="0xC-oe-1dE" firstAttribute="trailing" secondItem="pJZ-RV-5vr" secondAttribute="trailing" id="GUh-d1-TzU"/>
-                            <constraint firstItem="Sov-DL-u7b" firstAttribute="top" secondItem="0xC-oe-1dE" secondAttribute="top" constant="20" id="Hf1-zg-ef0"/>
-                            <constraint firstItem="0xC-oe-1dE" firstAttribute="trailing" secondItem="Sov-DL-u7b" secondAttribute="trailing" id="QX5-65-sYv"/>
-                            <constraint firstItem="pJZ-RV-5vr" firstAttribute="top" secondItem="Sov-DL-u7b" secondAttribute="bottom" constant="15" id="Vhr-f6-yfC"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Vna-ud-h2o"/>
-                    <connections>
-                        <outlet property="questsDetailLabel" destination="pJZ-RV-5vr" id="Ddh-1i-DsL"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oBB-Pm-41T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3418.840579710145" y="-256.47321428571428"/>
+            <point key="canvasLocation" x="2567" y="-252"/>
         </scene>
         <!--Quests Table View Controller-->
         <scene sceneID="bGq-G0-hYY">
@@ -456,11 +443,13 @@
                             <outlet property="delegate" destination="VN6-ab-0au" id="soo-Kv-1Ba"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="UId-bA-ywF"/>
+                    <navigationItem key="navigationItem" id="UId-bA-ywF">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="qog-wY-bUL"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ik-Me-Enw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4141" y="-274"/>
+            <point key="canvasLocation" x="3500" y="-252"/>
         </scene>
     </scenes>
     <resources>

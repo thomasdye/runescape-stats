@@ -7,27 +7,36 @@
 
 import UIKit
 
-class PlayerSearchViewController: UIViewController {
-
+class PlayerSearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+  
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var usernameTextField: UITextField!
   @IBOutlet weak var submitButton: UIButton!
+  @IBOutlet weak var recentSearchTableView: UITableView!
   
   let defaults = UserDefaults.standard
   var statsURL: String = ""
   var questURL: String = ""
   var username: String = ""
+  var searchedNames: [String] = []
+  var selectedUsername: String = ""
   
   override func viewDidLoad() {
+    print("wtf")
     super.viewDidLoad()
+    loadSearchedNames()
     setup()
+    self.recentSearchTableView.register(UITableViewCell.self, forCellReuseIdentifier: "RecentSearch")
+    self.recentSearchTableView.dataSource = self
+    recentSearchTableView.delegate = self
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
     clearFields()
     checkUserdefaults()
-
+    loadSearchedNames()
+    recentSearchTableView.reloadData()
   }
   
   // check if a username has been searched for while previously using the app
@@ -54,7 +63,7 @@ class PlayerSearchViewController: UIViewController {
       }.resume()
     }
   }
-
+  
   // get stats
   func getStats() {
     let urlAddingSpaces = statsURL.replacingOccurrences(of: " ", with: "%20")
@@ -134,10 +143,86 @@ class PlayerSearchViewController: UIViewController {
   func clearFields() {
     usernameTextField.text = ""
   }
+  
+  // load searched names to use in UITableView
+  func loadSearchedNames() {
+    guard let savedNames = defaults.object(forKey: "searchedNames") as? [String] else { return }
+    searchedNames = savedNames
     
+    if searchedNames == [""] {
+      searchedNames = []
+    }
+  }
+  
+  // save searched names
+  func saveSearchedNames() {
+    print("made it here")
+    // if the name does not already exist, add it
+    if !searchedNames.contains(username) {
+      searchedNames.append(username)
+    }
+    
+    defaults.set(searchedNames, forKey: "searchedNames")
+  }
+  
+  
+  func saveAfterDeletingRow() {
+    print("searched names after deleting row func: \(searchedNames)")
+    defaults.set(searchedNames, forKey: "searchedNames")
+  }
+  
+  // sections for UITableView
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return searchedNames.count
+  }
+
+  // setup cell for UITableView
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "RecentSearchCell", for: indexPath)
+    cell.textLabel?.numberOfLines = 0
+    cell.textLabel?.font = UIFont(name: "RuneScape-UF", size: 25)
+    cell.accessoryType = .disclosureIndicator
+    
+    // configure the cell
+    cell.textLabel?.text = searchedNames[indexPath.row]
+    return cell
+  }
+  
+  // selected cell for serched name
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    print("tapped")
+    let selectedName = searchedNames[indexPath.row]
+    selectedUsername = selectedName
+    submitButton.sendActions(for: .touchUpInside)
+  }
+  
+  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    // Return false if you do not want the specified item to be editable.
+    return true
+  }
+  
+  // Override to support editing the table view.
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+      print("searched names: \(searchedNames)")
+      self.searchedNames.remove(at: indexPath.row)
+      self.recentSearchTableView.beginUpdates()
+      self.recentSearchTableView.deleteRows(at: [indexPath], with: .fade)
+      self.recentSearchTableView.endUpdates()
+      print("searched names after: \(searchedNames)")
+      self.saveAfterDeletingRow()
+    }
+  }
+  
   // submit button tapped
   @IBAction func submitButtonTapped(_ sender: Any) {
-    username = usernameTextField.text!
+    guard let unwrappedUsername = usernameTextField.text else { return }
+    
+    if selectedUsername == "" {
+    username = unwrappedUsername
+    } else {
+      username = selectedUsername
+    }
     defaults.setValue(username, forKey: "username")
     statsURL = "https://apps.runescape.com/runemetrics/profile/profile?user=\(username)&activities=20"
     questURL = "https://apps.runescape.com/runemetrics/quests?user=\(username)"
@@ -157,10 +242,11 @@ class PlayerSearchViewController: UIViewController {
       self.present(alert, animated: true, completion: nil)
     } else {
       
-      // if valid account, sort by id (skill)
+      // if valid account, sort by id (skill) and save searched names
       stats.skillvalues.sort {
         $0.id < $1.id
       }
+      saveSearchedNames()
       performSegue(withIdentifier: "StatsTableViewSegue", sender: nil)
     }
   }

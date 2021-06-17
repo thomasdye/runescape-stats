@@ -15,6 +15,8 @@ class StatsTableViewController: UITableViewController {
     
   }
   
+  var arrIndexPath = [IndexPath]()
+  
   // MARK: - Table view data source
   
   override func numberOfSections(in tableView: UITableView) -> Int {
@@ -45,6 +47,17 @@ class StatsTableViewController: UITableViewController {
     cell.imageView?.image = UIImage(named: skillTitles[indexPath.row])
     return cell
   }
+  
+  // animate each UITableViewcell
+  override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if arrIndexPath.contains(indexPath) == false {
+      cell.alpha = 0
+      UIView.animate(withDuration: 0.75, delay: 0.00 * Double(indexPath.row), animations: {
+        cell.alpha = 1
+      })
+    arrIndexPath.append(indexPath)
+  }
+}
   
   // MARK: - Navigation
   

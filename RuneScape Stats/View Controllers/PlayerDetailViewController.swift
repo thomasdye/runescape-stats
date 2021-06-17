@@ -42,10 +42,23 @@ class PlayerDetailViewController: UIViewController, UITableViewDataSource {
     return stats.activities.count
   }
   
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    
+    cell.alpha = 0
+    
+    UIView.animate(
+      withDuration: 0.5,
+      delay: 0.05 * Double(indexPath.row),
+      animations: {
+      cell.alpha = 1
+    })
+  }
+  
+  
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "AdventureLog", for: indexPath)
     cell.textLabel?.numberOfLines = 0
-    cell.textLabel?.font = UIFont(name: "RuneScape-UF", size: 25)
+    cell.textLabel?.font = UIFont(name: "RuneScape-UF", size: 19)
     
     // Configure the cell...
     let details = stats.activities[indexPath.row].details

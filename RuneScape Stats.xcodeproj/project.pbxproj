@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ED846877267888F6004B07ED /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED846876267888F6004B07ED /* TableViewController.swift */; };
 		EDA097A02671F93A0033DF79 /* Keyboard Dismissal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA0979F2671F93A0033DF79 /* Keyboard Dismissal.swift */; };
 		EDA54DFA266B5295006EA683 /* StatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA54DF9266B5295006EA683 /* StatsTableViewController.swift */; };
 		EDA54EF9266B6637006EA683 /* runescape_uf.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EDA54EF8266B6637006EA683 /* runescape_uf.ttf */; };
@@ -26,7 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ED846876267888F6004B07ED /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		EDA0979F2671F93A0033DF79 /* Keyboard Dismissal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard Dismissal.swift"; sourceTree = "<group>"; };
 		EDA54DF9266B5295006EA683 /* StatsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTableViewController.swift; sourceTree = "<group>"; };
 		EDA54EF8266B6637006EA683 /* runescape_uf.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = runescape_uf.ttf; sourceTree = "<group>"; };
@@ -65,7 +63,6 @@
 				EDAE4D27266CA5360083636E /* StatsDetailViewController.swift */,
 				EDCE51C226748C3100956B61 /* PlayerDetailViewController.swift */,
 				EDCE51C82675F50600956B61 /* QuestsTableViewController.swift */,
-				ED846876267888F6004B07ED /* TableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -191,7 +188,6 @@
 				EDAE4D28266CA5360083636E /* StatsDetailViewController.swift in Sources */,
 				EDF7D55C265E24FF00D4FAF7 /* Stats.swift in Sources */,
 				EDAE4D2F266CA9A30083636E /* ExperienceTables.swift in Sources */,
-				ED846877267888F6004B07ED /* TableViewController.swift in Sources */,
 				EDF7D544265E19EF00D4FAF7 /* AppDelegate.swift in Sources */,
 				EDAE4D2C266CA8850083636E /* SkillTitles.swift in Sources */,
 				EDCE51C92675F50600956B61 /* QuestsTableViewController.swift in Sources */,

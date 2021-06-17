@@ -22,7 +22,6 @@ class PlayerSearchViewController: UIViewController, UITableViewDataSource, UITab
   var selectedUsername: String = ""
   
   override func viewDidLoad() {
-    print("wtf")
     super.viewDidLoad()
     loadSearchedNames()
     setup()
@@ -156,16 +155,16 @@ class PlayerSearchViewController: UIViewController, UITableViewDataSource, UITab
   
   // save searched names
   func saveSearchedNames() {
-    print("made it here")
     // if the name does not already exist, add it
     if !searchedNames.contains(username) {
       searchedNames.append(username)
     }
     
+    // save name
     defaults.set(searchedNames, forKey: "searchedNames")
   }
   
-  
+  // used to save searchedNames to UserDefaults when deleting a row from recently searched usernames
   func saveAfterDeletingRow() {
     print("searched names after deleting row func: \(searchedNames)")
     defaults.set(searchedNames, forKey: "searchedNames")
@@ -175,7 +174,7 @@ class PlayerSearchViewController: UIViewController, UITableViewDataSource, UITab
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return searchedNames.count
   }
-
+  
   // setup cell for UITableView
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "RecentSearchCell", for: indexPath)
@@ -219,13 +218,15 @@ class PlayerSearchViewController: UIViewController, UITableViewDataSource, UITab
     guard let unwrappedUsername = usernameTextField.text else { return }
     
     if selectedUsername == "" {
-    username = unwrappedUsername
+      username = unwrappedUsername
     } else {
       username = selectedUsername
     }
+    
+    let usernameForURL = username.replacingOccurrences(of: " ", with: "%20")
     defaults.setValue(username, forKey: "username")
-    statsURL = "https://apps.runescape.com/runemetrics/profile/profile?user=\(username)&activities=20"
-    questURL = "https://apps.runescape.com/runemetrics/quests?user=\(username)"
+    statsURL = "https://apps.runescape.com/runemetrics/profile/profile?user=\(usernameForURL)&activities=20"
+    questURL = "https://apps.runescape.com/runemetrics/quests?user=\(usernameForURL)"
     getStats()
     getQuests()
     

@@ -18,7 +18,7 @@ class PlayerDetailViewController: UIViewController, UITableViewDataSource {
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
-    title = stats.name
+    title = player.stats.name
     self.adventureLogTableView.register(UITableViewCell.self, forCellReuseIdentifier: "AdventureLog")
     self.adventureLogTableView.dataSource = self
   }
@@ -34,12 +34,12 @@ class PlayerDetailViewController: UIViewController, UITableViewDataSource {
     playerDetailLabel.numberOfLines = 0
     playerDetailLabel.font = UIFont(name: "RuneScape-UF", size: 20)
     playerDetailLabel.textAlignment = .center
-    playerDetailLabel.text = "Combat Level: \(stats.combatlevel)\nRank:\(stats.rank)\nTotal XP:\(stats.totalxp)\nMelee: \(stats.melee)\nRanged: \(stats.ranged)\nMagic: \(stats.magic)"
+    playerDetailLabel.text = "Combat Level: \(player.stats.combatlevel)\nRank:\(player.stats.rank)\nTotal XP:\(player.stats.totalxp)\nMelee: \(player.stats.melee)\nRanged: \(player.stats.ranged)\nMagic: \(player.stats.magic)"
     
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return stats.activities.count
+    return player.stats.activities.count
   }
   
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -61,8 +61,8 @@ class PlayerDetailViewController: UIViewController, UITableViewDataSource {
     cell.textLabel?.font = UIFont(name: "RuneScape-UF", size: 19)
     
     // Configure the cell...
-    let details = stats.activities[indexPath.row].details
-    let unformattedDate = stats.activities[indexPath.row].date
+    let details = player.stats.activities[indexPath.row].details
+    let unformattedDate = player.stats.activities[indexPath.row].date
     var date = unformattedDate.replacingOccurrences(of: "-", with: " ")
     date.removeLast(5)
     

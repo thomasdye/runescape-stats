@@ -34,16 +34,23 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3E-ve-1VD">
-                                <rect key="frame" x="173" y="277" width="68" height="39"/>
+                                <rect key="frame" x="147" y="277" width="120" height="39"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="aCM-b6-a7d"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="27"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
                                 <connections>
                                     <action selector="submitButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UAW-kS-Eyz"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="llH-9n-mo3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="llH-9n-mo3">
                                 <rect key="frame" x="0.0" y="369" width="414" height="493"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" systemColor="labelColor"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecentSearchCell" id="Fa2-IW-Vpg">
                                         <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
@@ -191,7 +198,13 @@
                             <constraint firstItem="p1g-ab-MML" firstAttribute="centerX" secondItem="A5w-fw-jbR" secondAttribute="centerX" id="xN1-8n-jL8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="71Q-29-oly"/>
+                    <navigationItem key="navigationItem" id="71Q-29-oly">
+                        <barButtonItem key="rightBarButtonItem" title="Leveling Guide" id="FCE-We-V0C">
+                            <connections>
+                                <segue destination="450-7s-ybd" kind="show" id="IL3-fF-bCp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="calculateLevelLabel" destination="VDX-my-gOA" id="A4A-8c-eRa"/>
                         <outlet property="checkLevelButton" destination="l2H-pw-A26" id="Rnj-Tz-UIj"/>
@@ -208,6 +221,36 @@
             </objects>
             <point key="canvasLocation" x="2567" y="392"/>
         </scene>
+        <!--Leveling Guide View Controller-->
+        <scene sceneID="7jg-0v-Ve9">
+            <objects>
+                <viewController id="450-7s-ybd" customClass="LevelingGuideViewController" customModule="RuneScape_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xLO-mR-hKa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsm-1b-gAJ">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fOR-xm-BM1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fOR-xm-BM1" firstAttribute="trailing" secondItem="wsm-1b-gAJ" secondAttribute="trailing" id="3Hu-g9-9RG"/>
+                            <constraint firstItem="fOR-xm-BM1" firstAttribute="bottom" secondItem="wsm-1b-gAJ" secondAttribute="bottom" id="Cwe-xY-AhY"/>
+                            <constraint firstItem="wsm-1b-gAJ" firstAttribute="leading" secondItem="fOR-xm-BM1" secondAttribute="leading" id="IPM-zC-Z8U"/>
+                            <constraint firstItem="wsm-1b-gAJ" firstAttribute="top" secondItem="fOR-xm-BM1" secondAttribute="top" id="yoF-lF-t1n"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="zM6-on-5vd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mPH-SZ-fgp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3500" y="392"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="V9m-tY-q9i">
             <objects>
@@ -220,7 +263,7 @@
                             <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="17"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="40"/>
+                            <fontDescription key="fontDescription" name="RuneScape-UF" family="RuneScape UF" pointSize="48"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -453,8 +496,14 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

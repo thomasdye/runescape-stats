@@ -25,15 +25,12 @@ class PlayerSearchViewController: UIViewController, UITableViewDataSource, UITab
     super.viewDidLoad()
     loadSearchedNames()
     setup()
-    self.recentSearchTableView.register(UITableViewCell.self, forCellReuseIdentifier: "RecentSearch")
-    self.recentSearchTableView.dataSource = self
-    recentSearchTableView.delegate = self
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
-    clearFields()
     checkUserdefaults()
+    clearFields()
     loadSearchedNames()
     recentSearchTableView.reloadData()
   }
@@ -42,7 +39,7 @@ class PlayerSearchViewController: UIViewController, UITableViewDataSource, UITab
   func checkUserdefaults() {
     if defaults.string(forKey: "username") != "" {
       guard let usernameSaved = defaults.string(forKey: "username") else { return }
-      usernameTextField.text = usernameSaved
+      usernameTextField.text = usernameSaved.capitalized
     }
   }
   
@@ -54,7 +51,7 @@ class PlayerSearchViewController: UIViewController, UITableViewDataSource, UITab
           let jsonDecoder = JSONDecoder()
           do {
             let parsedJSON = try jsonDecoder.decode(Quests.self, from: data)
-            stats.quests = parsedJSON
+            player.quests = parsedJSON
           } catch {
             print(error)
           }
@@ -106,13 +103,13 @@ class PlayerSearchViewController: UIViewController, UITableViewDataSource, UITab
         
         // if profile doesn't exist
         if prettyPrintedJson.contains("NO_PROFILE") {
-          stats.error = "NO_PROFILE"
+          player.stats.error = "NO_PROFILE"
         } else {
           do {
-            stats = try JSONDecoder().decode(Stats.self, from: prettyJsonData)
+            player.stats = try JSONDecoder().decode(Stats.self, from: prettyJsonData)
           } catch {
             // if profile is OSRS account
-            stats.error = "OSRS"
+            player.stats.error = "OSRS"
           }
         }
       } catch {
@@ -127,15 +124,26 @@ class PlayerSearchViewController: UIViewController, UITableViewDataSource, UITab
   
   // UI setup
   func setup() {
+    
     // title
     titleLabel.text = "Enter Character Name"
     
     // text field
     usernameTextField.placeholder = "Username"
     usernameTextField.textAlignment = .center
+    usernameTextField.layer.borderWidth = 1
+    usernameTextField.layer.cornerRadius = 5
     
     // submit button
     submitButton.setTitle("Submit", for: .normal)
+    submitButton.layer.cornerRadius = 5
+    submitButton.layer.borderWidth = 1
+    submitButton.layer.borderColor = UIColor.black.cgColor
+    
+    // UITableView
+    self.recentSearchTableView.register(UITableViewCell.self, forCellReuseIdentifier: "RecentSearch")
+    self.recentSearchTableView.dataSource = self
+    recentSearchTableView.delegate = self
   }
   
   // clear username field when returning to UIViewController
@@ -156,8 +164,8 @@ class PlayerSearchViewController: UIViewController, UITableViewDataSource, UITab
   // save searched names
   func saveSearchedNames() {
     // if the name does not already exist, add it
-    if !searchedNames.contains(username) {
-      searchedNames.append(username)
+    if !searchedNames.contains(username.capitalized) {
+      searchedNames.append(username.capitalized)
     }
     
     // save name
@@ -183,7 +191,7 @@ class PlayerSearchViewController: UIViewController, UITableViewDataSource, UITab
     cell.accessoryType = .disclosureIndicator
     
     // configure the cell
-    cell.textLabel?.text = searchedNames[indexPath.row]
+    cell.textLabel?.text = searchedNames[indexPath.row].capitalized
     return cell
   }
   
@@ -220,7 +228,7 @@ class PlayerSearchViewController: UIViewController, UITableViewDataSource, UITab
     if selectedUsername == "" {
       username = unwrappedUsername
     } else {
-      username = selectedUsername
+      username = selectedUsername.capitalized
     }
     
     let usernameForURL = username.replacingOccurrences(of: " ", with: "%20")
@@ -231,12 +239,12 @@ class PlayerSearchViewController: UIViewController, UITableViewDataSource, UITab
     getQuests()
     
     // catch for invalid username / OSRS account
-    if stats.error == "NO_PROFILE" {
+    if player.stats.error == "NO_PROFILE" {
       
       let alert = UIAlertController(title: "Invalid Username", message: "You have entered an invalid RS3 username. Please try again.", preferredStyle: UIAlertController.Style.alert)
       alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
       self.present(alert, animated: true, completion: nil)
-    } else if stats.error == "OSRS" {
+    } else if player.stats.error == "OSRS" {
       
       let alert = UIAlertController(title: "OSRS Account", message: "This app was designed to search for RS3 accounts. OSRS accounts may be supported in the future. Please enter an RS3 username and try again.", preferredStyle: UIAlertController.Style.alert)
       alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
@@ -244,7 +252,7 @@ class PlayerSearchViewController: UIViewController, UITableViewDataSource, UITab
     } else {
       
       // if valid account, sort by id (skill) and save searched names
-      stats.skillvalues.sort {
+      player.stats.skillvalues.sort {
         $0.id < $1.id
       }
       saveSearchedNames()

@@ -8,6 +8,7 @@
 import UIKit
 
 class StatsDetailViewController: UIViewController {
+  
   @IBOutlet weak var statsLabel: UILabel!
   @IBOutlet weak var levelProgressView: UIProgressView!
   @IBOutlet weak var currentLevelLabel: UILabel!
@@ -24,6 +25,7 @@ class StatsDetailViewController: UIViewController {
   let lowerMiddleUIColor: UIColor = UIColor(red: 0.97, green: 0.53, blue: 0.11, alpha: 1.00)
   let upperMiddleUIColor: UIColor = UIColor(red: 0.98, green: 0.82, blue: 0.00, alpha: 1.00)
   let upperUIColor: UIColor = UIColor(red: 0.42, green: 0.78, blue: 0.12, alpha: 1.00)
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -128,14 +130,11 @@ class StatsDetailViewController: UIViewController {
   @IBAction func checkLevelButtonTapped(_ sender: Any) {
     
     // check level entered correctly
-    // unwrap level as a string
     guard let levelAsString = checkLevelTextField.text else { return }
-    
-    // unwrap Int from string
     guard let levelAsInt = Int(levelAsString) else { return }
     
     // if level entered less than current level or greater than 99
-    // I'll have to handle the exeptions for the levels past 99 later
+    #warning("Still need to handle the exeptions for the levels past 99")
     if levelAsInt <= selectedStat.level {
       let alert = UIAlertController(title: "Already Higher Level", message: "You are already a higher level than the level entered.", preferredStyle: UIAlertController.Style.alert)
       alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))

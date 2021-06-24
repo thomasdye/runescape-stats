@@ -13,6 +13,8 @@
 		EDAE4D28266CA5360083636E /* StatsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE4D27266CA5360083636E /* StatsDetailViewController.swift */; };
 		EDAE4D2C266CA8850083636E /* SkillTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE4D2B266CA8850083636E /* SkillTitles.swift */; };
 		EDAE4D2F266CA9A30083636E /* ExperienceTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAE4D2E266CA9A30083636E /* ExperienceTables.swift */; };
+		EDC92B1526811C5100E32E37 /* LevelingGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC92B1426811C5100E32E37 /* LevelingGuideViewController.swift */; };
+		EDC92B1926811CB900E32E37 /* Leveling.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC92B1826811CB900E32E37 /* Leveling.swift */; };
 		EDCE51C326748C3100956B61 /* PlayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE51C226748C3100956B61 /* PlayerDetailViewController.swift */; };
 		EDCE51C92675F50600956B61 /* QuestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE51C82675F50600956B61 /* QuestsTableViewController.swift */; };
 		EDF7D544265E19EF00D4FAF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7D543265E19EF00D4FAF7 /* AppDelegate.swift */; };
@@ -31,6 +33,8 @@
 		EDAE4D27266CA5360083636E /* StatsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsDetailViewController.swift; sourceTree = "<group>"; };
 		EDAE4D2B266CA8850083636E /* SkillTitles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTitles.swift; sourceTree = "<group>"; };
 		EDAE4D2E266CA9A30083636E /* ExperienceTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceTables.swift; sourceTree = "<group>"; };
+		EDC92B1426811C5100E32E37 /* LevelingGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelingGuideViewController.swift; sourceTree = "<group>"; };
+		EDC92B1826811CB900E32E37 /* Leveling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leveling.swift; sourceTree = "<group>"; };
 		EDCE51C226748C3100956B61 /* PlayerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewController.swift; sourceTree = "<group>"; };
 		EDCE51C82675F50600956B61 /* QuestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestsTableViewController.swift; sourceTree = "<group>"; };
 		EDF7D540265E19EF00D4FAF7 /* RuneScape Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RuneScape Stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +67,7 @@
 				EDAE4D27266CA5360083636E /* StatsDetailViewController.swift */,
 				EDCE51C226748C3100956B61 /* PlayerDetailViewController.swift */,
 				EDCE51C82675F50600956B61 /* QuestsTableViewController.swift */,
+				EDC92B1426811C5100E32E37 /* LevelingGuideViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -73,6 +78,34 @@
 				EDA54EF8266B6637006EA683 /* runescape_uf.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		EDC92B1626811C6000E32E37 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EDAE4D2B266CA8850083636E /* SkillTitles.swift */,
+				EDF7D55B265E24FF00D4FAF7 /* Stats.swift */,
+				EDAE4D2E266CA9A30083636E /* ExperienceTables.swift */,
+				EDC92B1826811CB900E32E37 /* Leveling.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EDC92B1726811C7200E32E37 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EDA0979F2671F93A0033DF79 /* Keyboard Dismissal.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EDC92B1A26811DD300E32E37 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				EDF7D549265E19EF00D4FAF7 /* Main.storyboard */,
+				EDF7D54E265E19EF00D4FAF7 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		EDF7D537265E19EF00D4FAF7 = {
@@ -95,17 +128,14 @@
 			isa = PBXGroup;
 			children = (
 				EDA54EF7266B6630006EA683 /* Font */,
+				EDC92B1726811C7200E32E37 /* Extensions */,
+				EDC92B1626811C6000E32E37 /* Model */,
 				EDA54DFC266B5999006EA683 /* View Controllers */,
+				EDC92B1A26811DD300E32E37 /* Storyboard */,
 				EDF7D543265E19EF00D4FAF7 /* AppDelegate.swift */,
 				EDF7D545265E19EF00D4FAF7 /* SceneDelegate.swift */,
-				EDF7D549265E19EF00D4FAF7 /* Main.storyboard */,
 				EDF7D54C265E19EF00D4FAF7 /* Assets.xcassets */,
-				EDF7D54E265E19EF00D4FAF7 /* LaunchScreen.storyboard */,
 				EDF7D551265E19EF00D4FAF7 /* Info.plist */,
-				EDF7D55B265E24FF00D4FAF7 /* Stats.swift */,
-				EDAE4D2B266CA8850083636E /* SkillTitles.swift */,
-				EDAE4D2E266CA9A30083636E /* ExperienceTables.swift */,
-				EDA0979F2671F93A0033DF79 /* Keyboard Dismissal.swift */,
 			);
 			path = "RuneScape Stats";
 			sourceTree = "<group>";
@@ -182,10 +212,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDF7D548265E19EF00D4FAF7 /* PlayerSearchViewController.swift in Sources */,
+				EDC92B1526811C5100E32E37 /* LevelingGuideViewController.swift in Sources */,
 				EDA097A02671F93A0033DF79 /* Keyboard Dismissal.swift in Sources */,
 				EDCE51C326748C3100956B61 /* PlayerDetailViewController.swift in Sources */,
 				EDA54DFA266B5295006EA683 /* StatsTableViewController.swift in Sources */,
 				EDAE4D28266CA5360083636E /* StatsDetailViewController.swift in Sources */,
+				EDC92B1926811CB900E32E37 /* Leveling.swift in Sources */,
 				EDF7D55C265E24FF00D4FAF7 /* Stats.swift in Sources */,
 				EDAE4D2F266CA9A30083636E /* ExperienceTables.swift in Sources */,
 				EDF7D544265E19EF00D4FAF7 /* AppDelegate.swift in Sources */,

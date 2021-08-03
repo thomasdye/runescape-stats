@@ -3,7 +3,7 @@
 I designed this app to make searching for RS3 players quick and easy.
 
 ## Search by username
-<img src="https://github.com/thomasdye/runescape-stats/blob/master/195982BF-F007-49C1-BF56-A39418F166AC.jpeg?raw=true" width="20%">
+<img src="https://github.com/thomasdye/runescape-stats/blob/master/195982BF-F007-49C1-BF56-A39418F166AC.jpeg?raw=true" width="100px">
 
 ## See stats for each skill
 <img src="https://github.com/thomasdye/runescape-stats/blob/master/242AE52D-AEE1-4792-96B2-FFE143975769.jpeg?raw=true" width="20%">
